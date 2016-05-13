@@ -1,0 +1,7 @@
+*~
+*.[oa]
+*.swp
+.DS_Store
+.ruby-gemset
+.ruby-version
+xcuserdata

@@ -1,0 +1,47 @@
+DOTFILES=$HOME/dotfiles
+
+source $DOTFILES/zsh/path.zsh
+
+export EDITOR="vim"
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+
+# ZSH line editing mode
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
+# http://dougblack.io/words/zsh-vi-mode.html
+bindkey -e
+export KEYTIMEOUT=1
+
+# Antigen - https://github.com/zsh-users/antigen
+source ${DOTFILES}/zsh/antigen.zsh
+
+antigen bundle zsh-users/zsh-completions src
+
+antigen bundle robbyrussell/oh-my-zsh lib/compfix.zsh
+antigen bundle robbyrussell/oh-my-zsh lib/git.zsh
+antigen bundle robbyrussell/oh-my-zsh lib/grep.zsh
+antigen bundle robbyrussell/oh-my-zsh lib/history.zsh
+antigen bundle robbyrussell/oh-my-zsh lib/spectrum.zsh
+antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
+
+antigen bundle robbyrussell/oh-my-zsh plugins/brew
+antigen bundle robbyrussell/oh-my-zsh plugins/docker
+antigen bundle robbyrussell/oh-my-zsh plugins/pip
+antigen bundle robbyrussell/oh-my-zsh plugins/svn-fast-info
+antigen bundle robbyrussell/oh-my-zsh plugins/vagrant
+antigen bundle robbyrussell/oh-my-zsh plugins/virtualenv
+
+eval "$(npm completion 2>/dev/null)"
+
+eval "$(rbenv init -)"
+
+source ${DOTFILES}/zsh/prompt.zsh
+
+# Syntax highlighting has to be loaded after everything else
+# https://github.com/zsh-users/zsh-syntax-highlighting#faq
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply

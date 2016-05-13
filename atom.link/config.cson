@@ -1,0 +1,52 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "64267463-fcd3-4052-b0fc-c1cbf80419e8"
+  "atom-ternjs":
+    useSnippets: true
+  "autocomplete-plus":
+    confirmCompletion: "tab and enter"
+  core:
+    audioBeep: false
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
+      "*.pyc"
+      "*.o"
+      "*.lo"
+    ]
+    projectHome: "~/Projects"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+  editor:
+    fontFamily: "Monaco"
+    invisibles: {}
+    lineHeight: 1.4
+    preferredLineLength: 120
+    scrollPastEnd: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "fa75b83a-49d3-9d59-068d-89e0800db984"
+  "file-types":
+    "html\\.jinja": "text.html.jinja"
+    jsx: "source.js"
+    pbs: "source.shell"
+    sls: "source.yaml"
+  fonts:
+    fontFamily: "Source Code Pro Light"
+  linter:
+    lintOnEditorFocus: false
+    lintOnSave: true
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
+  "markdown-preview":
+    openPreviewInSplitPane: false
+  "one-dark-ui": {}
+  pigments: {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false

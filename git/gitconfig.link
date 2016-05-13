@@ -1,0 +1,13 @@
+[user]
+	name = Nick Watts
+	email = nick@nawatts.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[color]
+	diff = auto
+	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
