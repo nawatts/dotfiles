@@ -23,13 +23,6 @@ for source in $(find -H $DOTFILES -name '*.link'); do
   echo "link $source to $dest"
 done
 
-# Install Antigen
-# https://github.com/zsh-users/antigen/
-ANTIGEN_PATH=${DOTFILES}/zsh/antigen.zsh
-if [[ ! -f $ANTIGEN_PATH ]]; then
-  curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > $ANTIGEN_PATH
-fi
-
 # Install Atom packages
 while read pkg; do
   apm install "$pkg"

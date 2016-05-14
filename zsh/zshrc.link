@@ -1,5 +1,9 @@
 DOTFILES=$HOME/dotfiles
 
+# https://github.com/zplug/zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
 source $DOTFILES/zsh/path.zsh
 
 export EDITOR="vim"
@@ -15,34 +19,30 @@ source /usr/local/bin/virtualenvwrapper.sh
 bindkey -e
 export KEYTIMEOUT=1
 
-# Antigen - https://github.com/zsh-users/antigen
-source ${DOTFILES}/zsh/antigen.zsh
+zplug "zsh-users/zsh-completions", use:"src"
 
-antigen bundle zsh-users/zsh-completions src
+zplug "lib/compfix", from:"oh-my-zsh"
+zplug "lib/git", from:"oh-my-zsh"
+zplug "lib/grep", from:"oh-my-zsh"
+zplug "lib/history", from:"oh-my-zsh"
+zplug "lib/spectrum", from:"oh-my-zsh"
+zplug "lib/theme-and-appearance", from:"oh-my-zsh"
 
-antigen bundle robbyrussell/oh-my-zsh lib/compfix.zsh
-antigen bundle robbyrussell/oh-my-zsh lib/git.zsh
-antigen bundle robbyrussell/oh-my-zsh lib/grep.zsh
-antigen bundle robbyrussell/oh-my-zsh lib/history.zsh
-antigen bundle robbyrussell/oh-my-zsh lib/spectrum.zsh
-antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
-
-antigen bundle robbyrussell/oh-my-zsh plugins/brew
-antigen bundle felixr/docker-zsh-completion
-antigen bundle robbyrussell/oh-my-zsh plugins/docker-compose
-antigen bundle robbyrussell/oh-my-zsh plugins/pip
-antigen bundle robbyrussell/oh-my-zsh plugins/svn-fast-info
-antigen bundle robbyrussell/oh-my-zsh plugins/vagrant
-antigen bundle robbyrussell/oh-my-zsh plugins/virtualenv
-
-eval "$(npm completion 2>/dev/null)"
-
-eval "$(rbenv init -)"
-
-source ${DOTFILES}/zsh/prompt.zsh
+zplug "plugins/brew", from:"oh-my-zsh"
+zplug "felixr/docker-zsh-completion"
+zplug "plugins/docker-compose", from:"oh-my-zsh"
+zplug "plugins/npm", from:"oh-my-zsh"
+zplug "plugins/pip", from:"oh-my-zsh"
+zplug "plugins/svn-fast-info", from:"oh-my-zsh"
+zplug "plugins/vagrant", from:"oh-my-zsh"
+zplug "plugins/virtualenv", from:"oh-my-zsh"
 
 # Syntax highlighting has to be loaded after everything else
 # https://github.com/zsh-users/zsh-syntax-highlighting#faq
-antigen bundle zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
-antigen apply
+zplug load
+
+eval "$(rbenv init -)"
+
+source $DOTFILES/zsh/prompt.zsh
