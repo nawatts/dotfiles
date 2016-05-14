@@ -28,7 +28,8 @@ antigen bundle robbyrussell/oh-my-zsh lib/spectrum.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
 
 antigen bundle robbyrussell/oh-my-zsh plugins/brew
-antigen bundle robbyrussell/oh-my-zsh plugins/docker
+antigen bundle felixr/docker-zsh-completion
+antigen bundle robbyrussell/oh-my-zsh plugins/docker-compose
 antigen bundle robbyrussell/oh-my-zsh plugins/pip
 antigen bundle robbyrussell/oh-my-zsh plugins/svn-fast-info
 antigen bundle robbyrussell/oh-my-zsh plugins/vagrant
