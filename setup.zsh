@@ -27,3 +27,7 @@ done
 while read pkg; do
   apm install "$pkg"
 done < "${DOTFILES}/atom.link/installed-packages.txt"
+
+# Install Vundle
+mkdir -p $HOME/.vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim

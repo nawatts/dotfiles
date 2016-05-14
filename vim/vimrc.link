@@ -1,0 +1,32 @@
+set nocompatible
+filetype off
+
+" https://github.com/VundleVim/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tomasr/molokai'
+
+call vundle#end()
+
+set ai              " auto indenting
+set backspace=indent,eol,start
+set history=100     " keep 100 lines of history
+set hlsearch        " highlight the last searched term
+set ignorecase      " ignore case when searching
+set nowrap          " turn off word wrapping
+set nu
+set ruler           " show the cursor position
+set smartcase       " only ignore case when searching for lowercase
+set title           " set terminal title to filename
+
+" Tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+syntax on           " syntax highlighting
+filetype plugin on  " use the file type plugins
+
+colorscheme molokai
