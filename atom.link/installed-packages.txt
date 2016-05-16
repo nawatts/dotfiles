@@ -7,11 +7,13 @@ file-types
 fonts
 graphviz-preview
 language-blade
+language-docker
 language-dot
 language-swift
 linter
 linter-clang
 linter-csslint
+linter-docker
 linter-eslint
 linter-php
 linter-ruby
