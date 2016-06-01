@@ -10,6 +10,5 @@ PATHDIRS=(
     ./node_modules/.bin
     $(npm -g root)
     $HOME/bin
-    /Applications/Postgres.app/Contents/Versions/latest/bin
 )
 export PATH=${(j_:_)PATHDIRS}
