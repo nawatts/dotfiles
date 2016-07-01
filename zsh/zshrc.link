@@ -28,13 +28,14 @@ zplug "lib/history", from:"oh-my-zsh"
 zplug "lib/spectrum", from:"oh-my-zsh"
 zplug "lib/theme-and-appearance", from:"oh-my-zsh"
 
-zplug "plugins/brew", from:"oh-my-zsh"
-zplug "felixr/docker-zsh-completion"
-zplug "plugins/docker-compose", from:"oh-my-zsh"
-zplug "plugins/pip", from:"oh-my-zsh"
-zplug "plugins/svn-fast-info", from:"oh-my-zsh"
-zplug "plugins/vagrant", from:"oh-my-zsh"
-zplug "plugins/virtualenv", from:"oh-my-zsh"
+zplug "plugins/aws", from:"oh-my-zsh", nice:10
+zplug "plugins/brew", from:"oh-my-zsh", nice:10
+zplug "felixr/docker-zsh-completion", nice:10
+zplug "plugins/docker-compose", from:"oh-my-zsh", nice:10
+zplug "plugins/pip", from:"oh-my-zsh", nice:10
+zplug "plugins/svn-fast-info", from:"oh-my-zsh", nice:10
+zplug "plugins/vagrant", from:"oh-my-zsh", nice:10
+zplug "plugins/virtualenv", from:"oh-my-zsh", nice:10
 
 # Syntax highlighting has to be loaded after everything else
 # https://github.com/zsh-users/zsh-syntax-highlighting#faq
