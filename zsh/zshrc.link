@@ -1,7 +1,7 @@
 DOTFILES=$HOME/dotfiles
 
 # https://github.com/zplug/zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 
 source $DOTFILES/zsh/path.zsh
@@ -39,6 +39,8 @@ zplug "plugins/virtualenv", from:"oh-my-zsh", nice:10
 # Syntax highlighting has to be loaded after everything else
 # https://github.com/zsh-users/zsh-syntax-highlighting#faq
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+zplug "zplug/zplug"
 
 zplug load
 
