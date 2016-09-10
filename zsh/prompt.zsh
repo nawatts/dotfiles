@@ -31,6 +31,12 @@ function git_prompt() {
   echo "$(git_prompt_status)%{$reset_color%} $(git_current_branch)"
 }
 
+# The branch name function from oh-my-zsh is case sensitive.
+# This is a copy of that function with -i flag added to egrep
+function svn_current_branch_name() {
+  grep '^URL:' <<< "${1:-$(svn info 2> /dev/null)}" | egrep -io '(tags|branches)/[^/]+|trunk'
+}
+
 function rprompt_info() {
   local info="$(git_prompt)$(svn_prompt_info)"
   local venv_info=$(virtualenv_prompt_info)
