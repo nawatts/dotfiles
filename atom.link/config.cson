@@ -22,6 +22,7 @@
     ]
   editor:
     fontFamily: "Monaco"
+    fontSize: 15
     invisibles: {}
     lineHeight: 1.4
     preferredLineLength: 120
@@ -35,7 +36,7 @@
     pbs: "source.shell"
     sls: "source.yaml"
   fonts:
-    fontFamily: "Source Code Pro Light"
+    fontFamily: "Cousine"
   linter:
     lintOnEditorFocus: false
     lintOnSave: true
