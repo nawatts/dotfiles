@@ -15,8 +15,11 @@ linter-clang
 linter-csslint
 linter-docker
 linter-eslint
+linter-jsonlint
+linter-pep8
 linter-php
 linter-ruby
 monokai
 pigments
+sort-lines
 svn

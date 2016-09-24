@@ -42,6 +42,8 @@
     lintOnSave: true
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
+  "linter-pep8":
+    maxLineLength: 120
   "markdown-preview":
     openPreviewInSplitPane: false
   "one-dark-ui": {}
