@@ -50,3 +50,6 @@ zplug load
 eval "$(rbenv init -)"
 
 source $DOTFILES/zsh/prompt.zsh
+
+source $DOTFILES/zsh/functions.zsh
+
