@@ -22,5 +22,6 @@ linter-php
 linter-ruby
 monokai
 pigments
+rst-preview
 sort-lines
 svn
