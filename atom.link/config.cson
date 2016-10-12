@@ -1,6 +1,7 @@
 "*":
   "atom-beautify":
-    _analyticsUserId: "64267463-fcd3-4052-b0fc-c1cbf80419e8"
+    general:
+      _analyticsUserId: "dafb1454-5e64-40e9-8282-d820b82c3edc"
   "atom-ternjs":
     useSnippets: true
   "autocomplete-plus":
@@ -16,10 +17,12 @@
       "*.lo"
     ]
     projectHome: "~/Projects"
+    telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "monokai"
     ]
+    useCustomTitleBar: true
   editor:
     fontFamily: "Monaco"
     fontSize: 15
