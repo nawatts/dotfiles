@@ -9,6 +9,7 @@ graphviz-preview
 language-blade
 language-docker
 language-dot
+language-jade
 language-swift
 linter
 linter-clang
