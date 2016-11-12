@@ -9,5 +9,6 @@ PATHDIRS=(
     /Applications/Xcode.app/Contents/Developer/Tools
     ./node_modules/.bin
     $HOME/bin
+    $HOME/.yarn/bin
 )
 export PATH=${(j_:_)PATHDIRS}
