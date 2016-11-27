@@ -28,6 +28,10 @@ for source in $(find -H $DOTFILES -name '*.link'); do
   echo "link $source to $dest"
 done
 
+# Install zplug managed libraries/plugins
+source "$HOME/.zshrc"
+zplug install
+
 # Install Atom packages
 while read pkg; do
   apm install "$pkg"
@@ -36,3 +40,4 @@ done < "${DOTFILES}/atom.link/installed-packages.txt"
 # Install Vundle
 mkdir -p $HOME/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
