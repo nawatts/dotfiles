@@ -49,15 +49,8 @@
     maxLineLength: 120
   "markdown-preview":
     openPreviewInSplitPane: false
-  "one-dark-ui": {}
-  pigments: {}
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
-".blade.html.php.text":
-  editor:
-    commentEnd: " --}}"
-    commentStart: "{{-- "
-    preferredLineLength: 120
