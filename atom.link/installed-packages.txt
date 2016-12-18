@@ -1,4 +1,5 @@
 atom-beautify
+atom-jinja2
 atom-ternjs
 color-picker
 editorconfig
@@ -13,3 +14,4 @@ linter-jsonlint
 linter-pep8
 monokai
 pigments
+rst-preview
