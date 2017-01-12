@@ -6,7 +6,9 @@ DOTFILES=${0:a:h}
 echo "\e[38;5;160mWarning! This script will overwrite the following files:\e[0m"
 for source in $(find -H $DOTFILES -name '*.link'); do
   dest="$HOME/.${source:t:r}"
-  echo "$dest"
+  if [[ -e "$dest" ]]; then
+    echo "$dest"
+  fi
 done
 read -q "REPLY?Are you sure you want to continue (y|n)?"
 echo ""
