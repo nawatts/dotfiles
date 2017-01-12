@@ -8,6 +8,9 @@
     confirmCompletion: "tab and enter"
   core:
     audioBeep: false
+    disabledPackages: [
+      "whitespace"
+    ]
     ignoredNames: [
       ".git"
       ".svn"
