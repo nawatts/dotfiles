@@ -13,6 +13,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
+export PYTHONSTARTUP=$HOME/.python-startup.py
+
 # ZSH line editing mode
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
 # http://dougblack.io/words/zsh-vi-mode.html
@@ -52,4 +54,3 @@ eval "$(rbenv init -)"
 source $DOTFILES/zsh/prompt.zsh
 
 source $DOTFILES/zsh/functions.zsh
-
