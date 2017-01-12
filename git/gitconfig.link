@@ -11,3 +11,15 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[alias]
+	# Delete branches that have already been merged into the current branch
+	clean-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
+	# List files containing some search text
+	grep-files = "!f(){ git grep --name-only $@ | sort | uniq; }; f"
+	# Discard changes in working directory
+	revert = checkout --
+	s = status
+	undo-commit = reset --mixed HEAD~1
+	unstage = reset HEAD
+	# Save work in progress commit
+	wip = !git add --all && git commit -m "work in progress"
