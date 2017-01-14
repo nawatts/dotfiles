@@ -8,7 +8,9 @@ source $DOTFILES/zsh/path.zsh
 
 export EDITOR="vim"
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+if /usr/libexec/java_home &> /dev/null; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
