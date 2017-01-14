@@ -12,6 +12,7 @@ linter-docker
 linter-eslint
 linter-jsonlint
 linter-pep8
+modular-snippets
 monokai
 pigments
 rst-preview

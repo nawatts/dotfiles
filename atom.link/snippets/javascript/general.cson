@@ -1,0 +1,7 @@
+'.source.js':
+
+  'Constant':
+    prefix: 'defconst'
+    body: '''
+      export const $1 = '$1';
+      '''

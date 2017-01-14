@@ -1,0 +1,19 @@
+'.source.js':
+
+  'Mocha describe':
+    prefix: 'describe'
+    body: '''
+      import $1 from '$2$1';
+
+      describe('$1', function() {
+        $3
+      });
+      '''
+
+  'Mocha spec':
+    prefix: 'itshould'
+    body: '''
+      it('should $1', function() {
+        $2
+      });
+      '''

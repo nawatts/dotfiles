@@ -1,0 +1,90 @@
+'.source.js':
+
+  'React component':
+    prefix: 'reactcomponent'
+    body: '''
+      import React, { PropTypes } from 'react';
+
+      class $1 extends React.Component {
+
+        static propTypes = {
+        };
+
+        static defaultProps = {
+        };
+
+        render() {
+          return (
+            <div></div>
+          );
+        }
+      }
+
+      export default $1;
+      '''
+
+  'React stateless component':
+    prefix: 'reactstateless'
+    body: '''
+      import React, { PropTypes } from 'react';
+
+      const $1 = (props) => (
+        <div></div>
+      );
+
+      $1.propTypes = {
+      };
+
+      $1.defaultProps = {
+      };
+
+      export default $1;
+      '''
+
+  'React lifecycle componentWillMount':
+    prefix: 'rlwillmount'
+    body: '''
+      componentWillMount() {
+        $1
+      }
+      '''
+
+  'React lifecycle componentDidMount':
+    prefix: 'rldidmount'
+    body: '''
+      componentDidMount() {
+        $1
+      }
+      '''
+
+  'React lifecycle componentWillReceiveProps':
+    prefix: 'rlwillreceive'
+    body: '''
+      componentWillReceiveProps(nextProps) {
+        $1
+      }
+      '''
+
+  'React lifecycle componentWillUpdate':
+    prefix: 'rlwillupdate'
+    body: '''
+      componentWillUpdate(nextProps, nextState) {
+        $1
+      }
+      '''
+
+  'React lifecycle componentDidUpdate':
+    prefix: 'rldidupdate'
+    body: '''
+      componentDidUpdate(prepProps, prevState) {
+        $1
+      }
+      '''
+
+  'React lifecycle componentWillUnmount':
+    prefix: 'rlwillunmount'
+    body: '''
+      componentWillUnmount() {
+        $1
+      }
+      '''
