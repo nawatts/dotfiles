@@ -1,3 +1,7 @@
+function command_exists () {
+  [[ -x "$(command -v $1)" ]]
+}
+
 alias externalip="echo -n $(curl --silent 'http://checkip.amazonaws.com')"
 
 # Run a command repeatedly until it fails
