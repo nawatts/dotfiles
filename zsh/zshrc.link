@@ -12,7 +12,7 @@ if /usr/libexec/java_home &> /dev/null; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PYTHONSTARTUP=$HOME/.python-startup.py
