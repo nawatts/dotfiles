@@ -23,4 +23,4 @@
 	undo-commit = reset --mixed HEAD~1
 	unstage = reset HEAD
 	# Save work in progress commit
-	wip = !git add --all && git commit -m "work in progress"
+	wip = !git add --all && git commit -m \"work in progress\"
