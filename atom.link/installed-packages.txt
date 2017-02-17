@@ -11,7 +11,7 @@ linter-csslint
 linter-docker
 linter-eslint
 linter-jsonlint
-linter-pep8
+linter-pycodestyle
 modular-snippets
 monokai
 pigments
