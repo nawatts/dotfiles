@@ -18,7 +18,7 @@
 	# List files containing some search text
 	grep-files = "!f(){ git grep --name-only $@ | sort | uniq; }; f"
 	# Discard changes in working directory
-	revert-file = checkout --
+	discard-changes = checkout --
 	s = status
 	undo-commit = reset --mixed HEAD~1
 	unstage = reset HEAD
