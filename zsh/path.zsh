@@ -7,8 +7,8 @@ PATHDIRS=(
     /sbin
     /opt/X11/bin
     /Applications/Xcode.app/Contents/Developer/Tools
-    ./node_modules/.bin
-    $HOME/bin
+    $DOTFILES/bin
     $HOME/.yarn/bin
+    ./node_modules/.bin
 )
 export PATH=${(j_:_)PATHDIRS}
