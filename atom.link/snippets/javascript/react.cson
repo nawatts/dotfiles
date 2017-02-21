@@ -65,6 +65,14 @@
       }
       '''
 
+  'React lifecycle shouldComponentUpdate':
+    prefix: 'rlshouldupdate'
+    body: '''
+      shouldComponentUpdate(nextProps, nextState) {
+        $1
+      }
+      '''
+
   'React lifecycle componentWillUpdate':
     prefix: 'rlwillupdate'
     body: '''
@@ -76,7 +84,7 @@
   'React lifecycle componentDidUpdate':
     prefix: 'rldidupdate'
     body: '''
-      componentDidUpdate(prepProps, prevState) {
+      componentDidUpdate(prevProps, prevState) {
         $1
       }
       '''
