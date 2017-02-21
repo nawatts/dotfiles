@@ -20,7 +20,9 @@ fi
 # Install zplug
 # https://github.com/zplug/zplug
 export ZPLUG_HOME=$HOME/.zplug
-git clone "https://github.com/zplug/zplug" "${ZPLUG_HOME}"
+if [[ ! -d "${ZPLUG_HOME}" ]]; then
+  git clone "https://github.com/zplug/zplug" "${ZPLUG_HOME}"
+fi
 
 # Link dotfiles to home directory
 for source in $(find -H $DOTFILES -name '*.link'); do
@@ -35,11 +37,13 @@ source "$HOME/.zshrc"
 zplug install
 
 # Install Atom packages
-while read pkg; do
-  apm install "$pkg"
-done < "${DOTFILES}/atom.link/installed-packages.txt"
+if [[ -x "$(command -v apm)" ]]; then
+  apm install --packages-file "${DOTFILES}/atom.link/installed-packages.txt"
+fi
 
 # Install Vundle
-mkdir -p $HOME/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+mkdir -p "$HOME/.vim/bundle"
+if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
+  git clone "https://github.com/VundleVim/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
+fi
 vim +PluginInstall +qall

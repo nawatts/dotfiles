@@ -32,7 +32,5 @@ Load [iTerm2](https://www.iterm2.com/) preferences from dotfiles directory:
 If [Atom](https://atom.io/) is installed, `setup.zsh` installs packages listed
 in `atom.link/installed-packages.txt`. If Atom is installed later, run:
 ```shell
-while read pkg; do
-  apm install "$pkg"
-done < "${DOTFILES}/atom.link/installed-packages.txt"
+apm install --packages-file "${DOTFILES}/atom.link/installed-packages.txt"
 ```
