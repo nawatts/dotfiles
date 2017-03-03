@@ -6,9 +6,8 @@ import sys
 
 
 # http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
-sys.ps1 = "\n\033[36m>>> \033[00m"
-sys.ps2 = "\033[90m... \033[00m"
-
+sys.ps1 = "\001\033[36m\002>>> \001\033[00m\002"
+sys.ps2 = "\001\033[90m\002... \001\033[00m\002"
 
 # https://gist.github.com/chekunkov/848c3472d4b0bee69bccd2e77907a590
 def pprint_displayhook(output):
