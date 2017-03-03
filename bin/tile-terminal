@@ -1,0 +1,62 @@
+#!/usr/bin/osascript
+
+on run argv
+
+  -- Validate arguments
+  if count of argv = 0
+    return "numbers required"
+  end if
+  repeat with i from 1 to (count of argv)
+    try
+      set n to item i of argv as integer
+      if n <= 0
+        return "numbers required"
+      end if
+    on error
+      return "numbers required"
+    end try
+  end repeat
+
+  tell application "iTerm2"
+    tell current tab of current window
+
+      set original_session to current session
+
+      set total_rows to rows of current session
+      set total_cols to columns of current session
+
+      set n_rows to count of argv
+      set rows_per_pane to total_rows / n_rows as integer
+
+      -- Split pane into rows
+      set sess to current session
+      repeat with i from 2 to n_rows
+        tell sess to set sess to (split horizontally with same profile)
+      end repeat
+
+      copy sessions to row_sessions
+      repeat with i from 1 to n_rows
+        set n_cols to item i of argv as integer
+        set cols_per_pane to total_cols / n_cols as integer
+
+        -- Split row into columns
+        set sess to item i of row_sessions
+        tell sess to set rows to rows_per_pane
+        set sessions_in_row to { sess }
+
+        repeat with j from 2 to n_cols
+          tell sess to set sess to (split vertically with same profile)
+          set end of sessions_in_row to sess
+        end repeat
+
+        -- Set column widths
+        repeat with s in sessions_in_row
+          tell s to set columns to cols_per_pane
+        end repeat
+
+      end repeat
+
+    end tell
+  end tell
+
+end run
