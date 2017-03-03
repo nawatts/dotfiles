@@ -50,8 +50,6 @@ zplug load
 
 . <(npm completion)
 
-eval "$(rbenv init -)"
-
 source $DOTFILES/zsh/prompt.zsh
 
 source $DOTFILES/zsh/functions.zsh
