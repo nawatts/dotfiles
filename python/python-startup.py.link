@@ -9,6 +9,18 @@ import sys
 sys.ps1 = "\001\033[36m\002>>> \001\033[00m\002"
 sys.ps2 = "\001\033[90m\002... \001\033[00m\002"
 
+
+# Tab completion in REPL. Requires Python built with readline.
+# On OS X, install Python with Homebrew.
+try:
+    import readline
+except ImportError:
+    pass
+else:
+    import rlcompleter
+    readline.parse_and_bind("tab: complete")
+
+
 # https://gist.github.com/chekunkov/848c3472d4b0bee69bccd2e77907a590
 def pprint_displayhook(output):
     if output is None:
