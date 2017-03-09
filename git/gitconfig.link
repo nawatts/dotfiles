@@ -14,7 +14,8 @@
 [alias]
 	# Delete branches that have already been merged into the current branch
 	clean-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
-	fixup = commit --amend --no-edit
+	# Add to last commit and update timestamp
+	fixup = commit --amend --no-edit --reset-author
 	# List files containing some search text
 	grep-files = "!f(){ git grep --name-only $@ | sort | uniq; }; f"
 	# Discard changes in working directory
