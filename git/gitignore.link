@@ -1,7 +1,12 @@
+# Editor generated files
 *~
-*.[oa]
 *.swp
+
+# OS generated files
 .DS_Store
-.ruby-gemset
-.ruby-version
-xcuserdata
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
