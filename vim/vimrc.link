@@ -10,23 +10,40 @@ Plugin 'tomasr/molokai'
 
 call vundle#end()
 
-set ai              " auto indenting
-set backspace=indent,eol,start
-set history=100     " keep 100 lines of history
-set hlsearch        " highlight the last searched term
-set ignorecase      " ignore case when searching
-set nowrap          " turn off word wrapping
-set nu
-set ruler           " show the cursor position
-set smartcase       " only ignore case when searching for lowercase
-set title           " set terminal title to filename
+filetype plugin on
 
-" Tabs
+set backspace=indent,eol,start
+set history=100
+
+set title
+set nowrap
+set number
+set ruler
+set cursorline
+set scrolloff=2
+set sidescrolloff=5
+
+" Indentation
+set autoindent
+set expandtab
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set softtabstop=4
 
-syntax on           " syntax highlighting
-filetype plugin on  " use the file type plugins
+" Searching
+set hlsearch     " highlight matches
+set incsearch    " match while typing search
+set ignorecase   " case insensitive
+set smartcase    " unless search includes caps
+
+" Show invisible characters
+set list
+set listchars=tab:»\ ,eol:¬,extends:…,precedes:…
+
+" Autcomplete commands
+set wildmenu
+set wildmode=longest:full,full
+
+syntax on
 
 colorscheme molokai
