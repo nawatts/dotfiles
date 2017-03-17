@@ -1,19 +1,42 @@
 #!/usr/bin/osascript
 
+# Tile an iTerm2 window by splitting into several panes.
+# Arguments are a list of numbers of columns per row.
+#
+# Window will be split vertically into as many evenly sized rows as
+# there are arguments passed. Each row will be split into the
+# specified number of evenly sized columns.
+#
+# Ex. `tile-terminal 2 3` would produce:
+#
+#  2 rows
+#
+#   *-----*-----*
+#   |     |     |   2 columns
+#   *---*---*---*
+#   |   |   |   |   3 columns
+#   *---*---*---*
+#
+
+on usage()
+  set script_name to name of me as string
+  set usage to "Usage: " & script_name & " columns ..."
+end usage
+
 on run argv
 
   -- Validate arguments
   if count of argv = 0
-    return "numbers required"
+    return usage()
   end if
   repeat with i from 1 to (count of argv)
     try
       set n to item i of argv as integer
       if n <= 0
-        return "numbers required"
+        return usage()
       end if
     on error
-      return "numbers required"
+      return usage()
     end try
   end repeat
 
