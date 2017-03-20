@@ -56,6 +56,8 @@ bindkey -v
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
 setopt prompt_subst
 precmd() { RPROMPT="" }
