@@ -6,23 +6,7 @@ source $ZPLUG_HOME/init.zsh
 
 source $DOTFILES/zsh/path.zsh
 
-export EDITOR="vim"
-
-if /usr/libexec/java_home &> /dev/null; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
-export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
-source /usr/local/bin/virtualenvwrapper.sh
-
-export PYTHONSTARTUP=$HOME/.python-startup.py
-
-# ZSH line editing mode
-# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
-# http://dougblack.io/words/zsh-vi-mode.html
-bindkey -e
-export KEYTIMEOUT=1
-
+# https://github.com/zplug/zplug/wiki/Configurations
 zplug "zsh-users/zsh-completions", use:"src"
 
 zplug "lib/compfix", from:"oh-my-zsh"
@@ -48,6 +32,18 @@ zplug "zplug/zplug", hook-build: "zplug --self-manage"
 zplug load
 
 . <(npm completion)
+
+export EDITOR="vim"
+
+if /usr/libexec/java_home &> /dev/null; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
+# https://virtualenvwrapper.readthedocs.io
+export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
+source /usr/local/bin/virtualenvwrapper.sh
+
+export PYTHONSTARTUP=$HOME/.python-startup.py
 
 source $DOTFILES/zsh/prompt.zsh
 
