@@ -8,30 +8,38 @@ PROMPT_SEGMENTS=(
 PROMPT=${(j::)PROMPT_SEGMENTS}
 
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
-
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}✎%{$reset_color%} "
 
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%}◒%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}✚%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[yellow]%}✎%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}▹%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}✖%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_UNTRACKED=""
+ZSH_THEME_GIT_PROMPT_ADDED=""
+ZSH_THEME_GIT_PROMPT_MODIFIED=""
+ZSH_THEME_GIT_PROMPT_RENAMED=""
+ZSH_THEME_GIT_PROMPT_DELETED=""
 ZSH_THEME_GIT_PROMPT_STASHED=""
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}§%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_UNMERGED=""
 ZSH_THEME_GIT_PROMPT_AHEAD=""
 ZSH_THEME_GIT_PROMPT_BEHIND=""
 ZSH_THEME_GIT_PROMPT_DIVERGED=""
 
-
 ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX="%{$fg[green]%}⇡"
 ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%{$reset_color%} "
-
 ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX="%{$fg[red]%}⇣"
 ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX="%{$reset_color%} "
 
 function git_prompt() {
-  echo "$(git_commits_ahead)$(git_commits_behind)$(git_prompt_status)$(git_current_branch)"
+  local ref
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+
+  local prompt="$(parse_git_dirty)"
+  local branch=$(git_current_branch)
+  if [[ -n $(command git show-ref origin/${branch} 2> /dev/null) ]]; then
+    prompt="${prompt}$(git_commits_ahead)$(git_commits_behind)"
+  fi
+  prompt="${prompt}$(git_current_branch)"
+
+  echo $prompt
 }
 
 function rprompt_info() {
