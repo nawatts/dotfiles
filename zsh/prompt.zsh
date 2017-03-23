@@ -27,6 +27,11 @@ ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX="%{$fg[red]%}⇣"
 ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX="%{$reset_color%} "
 
+function git_has_remote() {
+  local branch=${1:-$(git_current_branch)}
+  [[ -n $(command git show-ref origin/${branch} 2> /dev/null) ]]
+}
+
 function git_prompt() {
   local ref
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
@@ -34,10 +39,10 @@ function git_prompt() {
 
   local prompt="$(parse_git_dirty)"
   local branch=$(git_current_branch)
-  if [[ -n $(command git show-ref origin/${branch} 2> /dev/null) ]]; then
-    prompt="${prompt}$(git_commits_ahead)$(git_commits_behind)"
+  if git_has_remote $branch ; then
+    prompt+="$(git_commits_ahead)$(git_commits_behind)"
   fi
-  prompt="${prompt}$(git_current_branch)"
+  prompt+="$branch"
 
   echo $prompt
 }
@@ -46,11 +51,11 @@ function rprompt_info() {
   local info=""
   local git_info="$(git_prompt)"
   if [[ $git_info ]]; then
-    info="${info} $git_info"
+    info+=" $git_info"
   fi
   local venv_info="$(virtualenv_prompt_info)"
   if [[ $venv_info ]]; then
-    info="$info $venv_info"
+    info+=" $venv_info"
   fi
   echo $info
 }
