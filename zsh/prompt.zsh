@@ -85,3 +85,6 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 export KEYTIMEOUT=1
+
+# Case insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
