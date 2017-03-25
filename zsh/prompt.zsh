@@ -16,8 +16,8 @@ ZSH_THEME_GIT_PROMPT_ADDED=""
 ZSH_THEME_GIT_PROMPT_MODIFIED=""
 ZSH_THEME_GIT_PROMPT_RENAMED=""
 ZSH_THEME_GIT_PROMPT_DELETED=""
-ZSH_THEME_GIT_PROMPT_STASHED=""
-ZSH_THEME_GIT_PROMPT_UNMERGED=""
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[cyan]%}⚑%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]}✘%{$reset_color} "
 ZSH_THEME_GIT_PROMPT_AHEAD=""
 ZSH_THEME_GIT_PROMPT_BEHIND=""
 ZSH_THEME_GIT_PROMPT_DIVERGED=""
@@ -37,7 +37,7 @@ function git_prompt() {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
 
-  local prompt="$(parse_git_dirty)"
+  local prompt="$(parse_git_dirty)$(git_prompt_status)"
   local branch=$(git_current_branch)
   if git_has_remote $branch ; then
     prompt+="$(git_commits_ahead)$(git_commits_behind)"
