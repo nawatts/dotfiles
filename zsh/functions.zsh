@@ -4,6 +4,8 @@ function command_exists () {
 
 alias externalip="echo -n $(curl --silent 'http://checkip.amazonaws.com')"
 
+alias reload_dotfiles="pushd $HOME > /dev/null && zplug clear && source .zshrc && popd > /dev/null"
+
 # Run a command repeatedly until it fails
 function repeat-until-fails () {
   if [[ $# -eq 0 ]]; then
