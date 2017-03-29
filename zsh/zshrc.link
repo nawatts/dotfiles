@@ -17,7 +17,6 @@ zplug "lib/spectrum", from:"oh-my-zsh"
 zplug "lib/theme-and-appearance", from:"oh-my-zsh"
 
 zplug "plugins/docker-compose", from:"oh-my-zsh", defer:2
-zplug "plugins/nvm", from:"oh-my-zsh", defer:2
 zplug "plugins/pip", from:"oh-my-zsh", defer:2
 zplug "plugins/vagrant", from:"oh-my-zsh", defer:2
 zplug "plugins/virtualenv", from:"oh-my-zsh", defer:2
@@ -30,8 +29,6 @@ zplug "zplug/zplug", hook-build: "zplug --self-manage"
 
 zplug load
 
-. <(npm completion)
-
 export EDITOR="vim"
 
 if /usr/libexec/java_home &> /dev/null; then
@@ -43,6 +40,11 @@ export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PYTHONSTARTUP=$HOME/.python-startup.py
+
+source <(nodenv init -)
+source $HOME/.nodenv/completions/nodenv.zsh
+export NODENV_VERSION="$(nodenv versions --bare | tail -n1)"
+. <(npm completion)
 
 source $DOTFILES/zsh/prompt.zsh
 

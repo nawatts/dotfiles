@@ -34,3 +34,11 @@ in `atom.link/installed-packages.txt`. If Atom is installed later, run:
 ```shell
 apm install --packages-file "${DOTFILES}/atom.link/installed-packages.txt"
 ```
+
+## More tools
+
+These are not installed by `setup.zsh`.
+
+* [nodenv](https://github.com/nodenv/nodenv)
+* [node-build](https://github.com/nodenv/node-build)
+* [Yarn](https://yarnpkg.com)
