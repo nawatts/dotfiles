@@ -16,7 +16,6 @@ zplug "lib/history", from:"oh-my-zsh"
 zplug "lib/spectrum", from:"oh-my-zsh"
 zplug "lib/theme-and-appearance", from:"oh-my-zsh"
 
-zplug "plugins/aws", from:"oh-my-zsh", defer:2
 zplug "plugins/docker-compose", from:"oh-my-zsh", defer:2
 zplug "plugins/nvm", from:"oh-my-zsh", defer:2
 zplug "plugins/pip", from:"oh-my-zsh", defer:2
