@@ -27,9 +27,9 @@ ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX="%{$fg[red]%}⇣"
 ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX="%{$reset_color%} "
 
-function git_has_remote() {
+function git_has_upstream() {
   local branch=${1:-$(git_current_branch)}
-  [[ -n $(command git show-ref origin/${branch} 2> /dev/null) ]]
+  [[ -n $(command git rev-parse "${branch}@{upstream}" 2> /dev/null) ]]
 }
 
 function git_prompt() {
@@ -39,7 +39,7 @@ function git_prompt() {
 
   local prompt="$(parse_git_dirty)$(git_prompt_status)"
   local branch=$(git_current_branch)
-  if git_has_remote $branch ; then
+  if git_has_upstream $branch ; then
     prompt+="$(git_commits_ahead)$(git_commits_behind)"
   fi
   prompt+="$branch"
