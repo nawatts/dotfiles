@@ -22,10 +22,33 @@ ZSH_THEME_GIT_PROMPT_AHEAD=""
 ZSH_THEME_GIT_PROMPT_BEHIND=""
 ZSH_THEME_GIT_PROMPT_DIVERGED=""
 
+ZSH_THEME_GIT_PROMPT_IN_PROGRESS="%{$fg[yellow]%}⚠%{$reset_color%} "
+
 ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX="%{$fg[green]%}⇡"
 ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_COMMITS_BEHIND_PREFIX="%{$fg[red]%}⇣"
 ZSH_THEME_GIT_COMMITS_BEHIND_SUFFIX="%{$reset_color%} "
+
+function git_is_action_in_progress() {
+  local git_dir="$(git rev-parse --git-dir)"
+
+  local check_files=(
+    BISECT_LOG
+    CHERRY_PICK_HEAD
+    MERGE_HEAD
+    rebase-apply
+    rebase-merge
+    REVERT_HEAD
+  )
+
+  for f in $check_files; do
+    if [[ -e "${git_dir}/${f}" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
 
 function git_has_upstream() {
   local branch=${1:-$(git_current_branch)}
@@ -38,6 +61,9 @@ function git_prompt() {
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
 
   local prompt="$(parse_git_dirty)$(git_prompt_status)"
+  if git_is_action_in_progress ; then
+    prompt+="${ZSH_THEME_GIT_PROMPT_IN_PROGRESS}"
+  fi
   local branch=$(git_current_branch)
   if git_has_upstream $branch ; then
     prompt+="$(git_commits_ahead)$(git_commits_behind)"
