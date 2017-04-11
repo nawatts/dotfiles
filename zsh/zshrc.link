@@ -20,6 +20,7 @@ zplug "plugins/docker-compose", from:"oh-my-zsh", defer:2
 zplug "plugins/pip", from:"oh-my-zsh", defer:2
 zplug "plugins/vagrant", from:"oh-my-zsh", defer:2
 zplug "plugins/virtualenv", from:"oh-my-zsh", defer:2
+zplug "plugins/yarn", from:"oh-my-zsh", defer:2
 
 # Syntax highlighting has to be loaded after everything else
 # https://github.com/zsh-users/zsh-syntax-highlighting#faq
