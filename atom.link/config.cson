@@ -50,6 +50,8 @@
     disableWhenNoEslintrcFileInPath: true
   "linter-pep8":
     maxLineLength: 120
+  "linter-ui-default":
+    showPanel: true
   "markdown-preview":
     openPreviewInSplitPane: false
   "tree-view":
