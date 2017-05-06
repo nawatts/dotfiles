@@ -44,7 +44,7 @@ export PYTHONSTARTUP=$HOME/.python-startup.py
 
 source <(nodenv init -)
 source $HOME/.nodenv/completions/nodenv.zsh
-export NODENV_VERSION="$(nodenv versions --bare | tail -n1)"
+nodenv global "$(nodenv versions --bare | tail -n1)"
 . <(npm completion)
 
 source $DOTFILES/zsh/prompt.zsh
