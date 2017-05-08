@@ -73,6 +73,15 @@ function git_prompt() {
   echo $prompt
 }
 
+# Include current Node version in prompt only if it set
+# by something other than ~/.nodenv/version
+function nodenv_prompt_info() {
+  local version="$(nodenv version)"
+  if [[ ! "$version" =~ "$HOME/.nodenv/version" ]]; then
+    echo "[${version%% *}]"
+  fi
+}
+
 function rprompt_info() {
   local info=""
   local git_info="$(git_prompt)"
@@ -83,6 +92,12 @@ function rprompt_info() {
   if [[ $venv_info ]]; then
     info+=" $venv_info"
   fi
+
+  local nodenv_info="$(nodenv_prompt_info)"
+  if [[ $nodenv_info ]]; then
+    info+=" $nodenv_info"
+  fi
+
   echo $info
 }
 
